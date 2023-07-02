@@ -1,0 +1,16 @@
+USE [master]
+GO
+
+USE master;
+IF EXISTS (SELECT name FROM sys.databases WHERE name = N'PRN211_Online_Store')
+BEGIN
+    ALTER DATABASE PRN211_Online_Store SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE PRN211_Online_Store;
+END
+
+CREATE DATABASE [PRN211_Online_Store]
+GO
+USE [PRN211_Online_Store]
+GO
+
+CREATE TABLE 
