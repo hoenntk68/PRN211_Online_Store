@@ -1,0 +1,34 @@
+WEB APP: TRANG GIỚI THIỆU VÀ ĐÁNH GIÁ SẢN PHẨM CỦA MỘT CỬA HÀNG ONLINE
+
+- Xác định các chức năng mà trang có thể làm: display sản phẩm, cho phép add sản phẩm, cho phép đánh giá
+- Trang web có ngôn ngữ 100% tiếng Việt
+
+- Trang homepage: navbar, search bar, display all product)
+	+ Nav bar: hiển thị login/logout, với admin có thêm nút + để add sp
+		-> biến isLoggedIn và isAdmin
+	+ Hiển thị sản phẩm: 
+		trước mắt hiển thị theo dạng lưới không filter
+		sau có thời gian làm thêm tìm theo category
+- Trang đăng nhập
+	+ đăng nhập thành công redirect về homepage
+	+ đăng nhập thất bại reload trang
+- Trang admin
+	+ Trang add sản phẩm 
+	+ Trang update sản phẩm (low priority)
+- Trang đổ về kết quả tìm kiếm
+- Trang xem sản phẩm chi tiết và hiển thị đánh giá cho sản phẩm
+	+ với user: đầu phần feedback có nút đánh giá (nếu đã đánh giá rồi thì nút này không hiện nữa) 
+		-> thêm biến hasUserFeedbackedProduct kiểu bool
+	+ với admin: có thêm nút 3 chấm để delete và update sản phẩm
+- Trang form đánh giá sản phẩm: (cân nhắc chuyển qua toggle)
+	người dùng chỉ được đánh giá 1 lần, 
+	đánh giá xong hiện alert thành công và quay về trang của sản phẩm vừa đánh giá
+
+- Thứ tự ưu tiên các trang
+	+ Homepage: để display sản phẩm
+	+ Login
+	+ Hiển thị sản phẩm và feedback đi kèm (đầu tiên chỉ hiển thị 1 giá)
+	+ Đánh giá sản phẩm (nếu không kịp sẽ làm theo hướng cho nhập tên mỗi lần đánh giá)
+	+ Thêm sản phẩm
+	+ Tìm kiếm sản phẩm
+	+ Sửa sản phẩm

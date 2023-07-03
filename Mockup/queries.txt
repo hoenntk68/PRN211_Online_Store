@@ -1,0 +1,61 @@
+- Trang homepage
+	- Get all product:
+		+ id (để bấm vào chuyển trang sang detail)
+		+ name
+		+ ảnh đại diện
+		+ giá
+		+ đã bán (unitSold)
+- Trang login
+	- Get user (username, password)
+- Trang hiển thị sản phẩm
+	- Get product info
+		+ id
+		+ name
+		+ all images
+		+ giá
+		+ các tag category
+		+ các chủng loại kèm giá
+		+ unitSold
+		+ unitStock
+	- Get product feedbacks
+		+ feedbackId	
+		+ feedback star
+		+ feedback content
+		+ feedback attachment (optional)
+- Trang đánh giá sản phẩm
+	- Get product info (dự định làm y hệt section product detail)
+		+ id
+		+ name
+		+ all images
+		+ giá
+		+ các tag category
+		+ các chủng loại kèm giá
+		+ unitSold
+		+ unitStock
+	- Form đánh giá
+		+ rate sao
+		+ điền comment
+		+ upload ảnh (optional)
+- Trang thêm sản phẩm
+	- Form thêm sản phẩm
+		+ name
+		+ all images
+		+ giá
+		+ các tag category
+		+ các chủng loại kèm giá
+		+ unitSold
+		+ unitStock
+	- Insert into Product, insert into images
+- Trang tìm kiếm sản phẩm
+	+ từ khóa tìm kiếm
+	+ số kết quả tìm kiếm
+	+ tất cả kết quả tìm kiếm
+- Trang sửa sản phẩm (low priority)
+	-form 
+		+ name
+		+ all images
+		+ giá
+		+ các tag category
+		+ các chủng loại kèm giá (optional)
+		+ unitSold
+		+ unitStock
