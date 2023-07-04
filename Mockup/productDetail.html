@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Product Details</title>
+    <style>
+      /* Add your own CSS styles here */
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f6f6f6;
+      }
+
+      /* Header styles */
+      .header {
+        background-color: #f6f6f6;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .search-bar {
+        display: flex;
+        align-items: center;
+      }
+
+      .search-input {
+        width: 75vw;
+        height: 30px;
+        border-radius: 15px;
+        border: 1px solid #ccc;
+        padding: 5px;
+        margin-right: 10px;
+      }
+
+      .search-button {
+        background-color: #f9f9f9;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+
+      .profile-section {
+        display: flex;
+        align-items: center;
+      }
+
+      .login-button {
+        margin-right: 10px;
+        cursor: pointer;
+      }
+
+      .profile-icon {
+        cursor: pointer;
+      }
+
+      /* Dropdown menu styles */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      /* Display product */
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .product-wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+      .product-images {
+        flex-basis: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 20px;
+      }
+
+      .carousel {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        overflow: hidden;
+      }
+
+      .carousel-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.3s ease;
+      }
+
+      .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        background-color: rgba(255, 255, 255, 0.5);
+        border: none;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: opacity 0.3s ease;
+      }
+
+      .carousel-arrow:hover {
+        opacity: 0.8;
+      }
+
+      .carousel-arrow.prev {
+        left: 10px;
+      }
+
+      .carousel-arrow.next {
+        right: 10px;
+      }
+
+      .product-info {
+        flex-basis: 50%;
+      }
+
+      .product-info h3 {
+        color: #333;
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+
+      .product-info p {
+        color: #777;
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+
+      .product-info ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .product-info ul li {
+        color: #777;
+        margin-bottom: 5px;
+      }
+
+      .product-description {
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .product-description h4 {
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+
+      .product-description p {
+        color: #333;
+        margin: 0;
+      }
+
+      .feedbacks {
+        margin-top: 30px;
+      }
+
+      .feedback {
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .feedback-user {
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .feedback-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .feedback-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .feedback-username {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #333;
+      }
+
+      .feedback-stars {
+        display: flex;
+      }
+
+      .feedback-stars i {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        color: #ffd700; /* Yellow */
+        margin-right: 2px;
+      }
+
+      .feedback-stars i.grey {
+        color: #ccc;
+      }
+
+      .feedback-comment {
+        color: #333;
+        margin: 0;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="search-bar">
+        <input
+          class="search-input"
+          type="text"
+          style="min-width: 300px"
+          placeholder="Enter your search"
+        />
+        <button class="search-button" type="submit">
+          <img src="search-icon.png" alt="Search Icon" width="20" height="20" />
+        </button>
+      </div>
+      <div class="profile-section">
+        <div class="login-button">Login/Logout</div>
+        <div class="profile-icon dropdown">
+          <img
+            src="profile-icon.png"
+            alt="Profile Icon"
+            width="30"
+            height="30"
+          />
+          <div class="dropdown-content">
+            <a href="#">Profile</a>
+            <a href="#">Orders</a>
+            <a href="#">Settings</a>
+            <a href="#">Logout</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="product-wrapper">
+        <div class="product-images">
+          <div class="carousel">
+            <img
+              class="carousel-image"
+              src="https://hips.hearstapps.com/hmg-prod/images/best-skincare-products-1656081764.jpg"
+              alt="Product Image"
+            />
+            <img
+              class="carousel-image"
+              src="https://media.istockphoto.com/id/1198863709/photo/skin-and-hair-care-beauty-product-mock-up-lotion-bottle-oil-cream-isolated-on-white-3d-render.jpg?s=612x612&w=0&k=20&c=_0-9dLUohaQrThH0669Ygx3Ar17rX0cRkXy0cEexfQw="
+              alt="Product Image"
+            />
+            <img
+              class="carousel-image"
+              src="https://cdn.cliqueinc.com/posts/304628/new-skincare-2023-304628-1681041148575-main.700x0c.jpg"
+              alt="Product Image"
+            />
+            <div class="carousel-arrow prev">
+              <i class="far fa-arrow-alt-circle-left"></i>
+            </div>
+            <div class="carousel-arrow next">
+              <i class="far fa-arrow-alt-circle-right"></i>
+            </div>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>Product Name</h3>
+          <p>Price: $XX</p>
+          <p>Units in Stock: XX</p>
+          <p>Units Sold: XX</p>
+          <p>Categories: Category 1, Category 2, Category 3</p>
+          <p>Variants: Variant 1, Variant 2, Variant 3</p>
+        </div>
+      </div>
+      <div class="product-description">
+        <h4>Thông tin sản phẩm</h4>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+          interdum dolor eget ipsum facilisis, sit amet lacinia ipsum fringilla.
+          Vestibulum eget sapien ac turpis aliquet elementum vel ut quam. In hac
+          habitasse platea dictumst. Aliquam nec ultrices erat. Cras rutrum
+          lectus et dapibus ultricies. Suspendisse varius magna justo, in
+          lobortis eros vulputate sed. Fusce dictum eleifend nunc, nec ultricies
+          tellus ullamcorper vel. Sed non dui a dolor dapibus scelerisque.
+          Suspendisse quis dui fringilla, elementum eros non, rutrum ipsum.
+        </p>
+      </div>
+      <div class="feedbacks">
+        <h3>Đánh giá</h3>
+        <div class="feedback">
+          <div class="feedback-user">
+            <div class="feedback-avatar">
+              <img
+                src="https://media.istockphoto.com/id/1198863709/photo/skin-and-hair-care-beauty-product-mock-up-lotion-bottle-oil-cream-isolated-on-white-3d-render.jpg?s=612x612&w=0&k=20&c=_0-9dLUohaQrThH0669Ygx3Ar17rX0cRkXy0cEexfQw="
+                alt="User Avatar"
+              />
+            </div>
+            <p>Huyền Nguyễn</p>
+          </div>
+          <div class="feedback-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star grey"></i>
+            <i class="fas fa-star grey"></i>
+          </div>
+          <p class="feedback-comment">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae
+            urna at tortor porttitor tempus.
+          </p>
+        </div>
+        <div class="feedback">
+          <div class="feedback-user">
+            <div class="feedback-avatar">
+              <img
+                src="https://media.istockphoto.com/id/1198863709/photo/skin-and-hair-care-beauty-product-mock-up-lotion-bottle-oil-cream-isolated-on-white-3d-render.jpg?s=612x612&w=0&k=20&c=_0-9dLUohaQrThH0669Ygx3Ar17rX0cRkXy0cEexfQw="
+                alt="User Avatar"
+              />
+            </div>
+            <p>Huyền Nguyễn</p>
+          </div>
+          <div class="feedback-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star grey"></i>
+            <i class="fas fa-star grey"></i>
+          </div>
+          <p class="feedback-comment">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae
+            urna at tortor porttitor tempus.
+          </p>
+        </div>
+      </div>
+    </div>
+    <script>
+      const carousel = document.querySelector(".carousel");
+      const carouselImages = Array.from(
+        document.querySelectorAll(".carousel-image")
+      );
+      const prevButton = document.querySelector(".carousel-arrow.prev");
+      const nextButton = document.querySelector(".carousel-arrow.next");
+      let currentIndex = 0;
+
+      function showImage(index) {
+        carouselImages.forEach((image, i) => {
+          if (i === index) {
+            image.style.transform = "translateX(0)";
+          } else {
+            image.style.transform = "translateX(100%)";
+          }
+        });
+      }
+
+      function showNextImage() {
+        currentIndex = (currentIndex + 1) % carouselImages.length;
+        showImage(currentIndex);
+      }
+
+      function showPreviousImage() {
+        currentIndex =
+          (currentIndex - 1 + carouselImages.length) % carouselImages.length;
+        showImage(currentIndex);
+      }
+
+      nextButton.addEventListener("click", showNextImage);
+      prevButton.addEventListener("click", showPreviousImage);
+    </script>
+  </body>
+</html>

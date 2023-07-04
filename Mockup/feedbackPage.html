@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Product Feedback</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      /* Header styles */
+      .header {
+        background-color: #f6f6f6;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .search-bar {
+        display: flex;
+        align-items: center;
+      }
+
+      .search-input {
+        width: 75vw;
+        height: 30px;
+        border-radius: 15px;
+        border: 1px solid #ccc;
+        padding: 5px;
+        margin-right: 10px;
+      }
+
+      .search-button {
+        background-color: #f9f9f9;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+
+      .profile-section {
+        display: flex;
+        align-items: center;
+      }
+
+      .login-button {
+        margin-right: 10px;
+        cursor: pointer;
+      }
+
+      .profile-icon {
+        cursor: pointer;
+      }
+
+      /* Dropdown menu styles */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      /*Style the form */
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .feedback-form {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .star-rating {
+        display: block;
+        margin-bottom: 25px;
+        direction: rtl;
+        text-align: center;
+        margin-top: 50px;
+      }
+      .star-rating input[type="radio"] {
+        display: none;
+      }
+      .star-rating > label {
+        color: #ccc;
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        font-size: 50px;
+      }
+      .star-rating > label:hover,
+      .star-rating > label:hover ~ label,
+      .star-rating > input[type="radio"]:checked ~ label {
+        color: #f2b600;
+      }
+
+      .image-upload-section {
+        margin-bottom: 20px;
+      }
+
+      .comment-section {
+        margin-bottom: 20px;
+      }
+
+      textarea {
+        width: 100%;
+        padding: 10px;
+      }
+
+      input[type="submit"] {
+        background-color: #337ab7;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #23527c;
+      }
+
+      .product-wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+      .product-images {
+        flex-basis: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 20px;
+      }
+
+      .carousel {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        overflow: hidden;
+      }
+
+      .carousel-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.3s ease;
+      }
+
+      .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        background-color: rgba(255, 255, 255, 0.5);
+        border: none;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: opacity 0.3s ease;
+      }
+
+      .carousel-arrow:hover {
+        opacity: 0.8;
+      }
+
+      .carousel-arrow.prev {
+        left: 10px;
+      }
+
+      .carousel-arrow.next {
+        right: 10px;
+      }
+
+      .product-info {
+        flex-basis: 50%;
+      }
+
+      .product-info h3 {
+        color: #333;
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+
+      .product-info p {
+        color: #777;
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+
+      .product-info ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .product-info ul li {
+        color: #777;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="search-bar">
+        <input
+          class="search-input"
+          type="text"
+          style="min-width: 300px"
+          placeholder="Enter your search"
+        />
+        <button class="search-button" type="submit">
+          <img src="search-icon.png" alt="Search Icon" width="20" height="20" />
+        </button>
+      </div>
+      <div class="profile-section">
+        <div class="login-button">Login/Logout</div>
+        <div class="profile-icon dropdown">
+          <img
+            src="profile-icon.png"
+            alt="Profile Icon"
+            width="30"
+            height="30"
+          />
+          <div class="dropdown-content">
+            <a href="#">Profile</a>
+            <a href="#">Orders</a>
+            <a href="#">Settings</a>
+            <a href="#">Logout</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <hr />
+    <div class="product-wrapper">
+      <div class="product-images">
+        <div class="carousel">
+          <img
+            class="carousel-image"
+            src="https://hips.hearstapps.com/hmg-prod/images/best-skincare-products-1656081764.jpg"
+            alt="Product Image"
+          />
+          <img
+            class="carousel-image"
+            src="https://media.istockphoto.com/id/1198863709/photo/skin-and-hair-care-beauty-product-mock-up-lotion-bottle-oil-cream-isolated-on-white-3d-render.jpg?s=612x612&w=0&k=20&c=_0-9dLUohaQrThH0669Ygx3Ar17rX0cRkXy0cEexfQw="
+            alt="Product Image"
+          />
+          <img
+            class="carousel-image"
+            src="https://cdn.cliqueinc.com/posts/304628/new-skincare-2023-304628-1681041148575-main.700x0c.jpg"
+            alt="Product Image"
+          />
+          <div class="carousel-arrow prev">
+            <i class="far fa-arrow-alt-circle-left"></i>
+          </div>
+          <div class="carousel-arrow next">
+            <i class="far fa-arrow-alt-circle-right"></i>
+          </div>
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Product Name</h3>
+        <p>Price: $XX</p>
+        <p>Units in Stock: XX</p>
+        <p>Units Sold: XX</p>
+        <p>Categories: Category 1, Category 2, Category 3</p>
+        <p>Variants: Variant 1, Variant 2, Variant 3</p>
+      </div>
+    </div>
+    <hr />
+    <h1>Product Feedback</h1>
+
+    <form
+      class="feedback-form"
+      action="submit-feedback.php"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <p for="rating">Rate the product:</p>
+      <div class="star-rating">
+        <input id="star-5x" type="radio" name="rating" value="star-5" />
+        <label for="star-5x" title="5 stars">
+          <i class="fa fa-star"></i>
+        </label>
+
+        <input id="star-4x" type="radio" name="rating" value="star-4" />
+        <label for="star-4x" title="4 stars">
+          <i class="fa fa-star"></i>
+        </label>
+
+        <input id="star-3x" type="radio" name="rating" value="star-3" checked />
+        <label for="star-3x" title="3 stars">
+          <i class="fa fa-star"></i>
+        </label>
+
+        <input id="star-2x" type="radio" name="rating" value="star-2" />
+        <label for="star-2x" title="2 stars">
+          <i class="fa fa-star"></i>
+        </label>
+
+        <input id="star-1x" type="radio" name="rating" value="star-1" />
+        <label for="star-1x" title="1 star">
+          <i class="fa fa-star"></i>
+        </label>
+      </div>
+
+      <div class="image-upload-section">
+        <label for="images">Upload images:</label>
+        <input
+          type="file"
+          name="images"
+          id="images"
+          accept="image/*"
+          multiple
+        />
+      </div>
+
+      <div class="comment-section">
+        <label for="comment">Leave a comment:</label>
+        <textarea
+          name="comment"
+          id="comment"
+          rows="5"
+          placeholder="Enter your comment"
+        ></textarea>
+      </div>
+
+      <input type="submit" value="Submit Feedback" />
+    </form>
+    <hr />
+  </body>
+  <script>
+    const carousel = document.querySelector(".carousel");
+    const carouselImages = Array.from(
+      document.querySelectorAll(".carousel-image")
+    );
+    const prevButton = document.querySelector(".carousel-arrow.prev");
+    const nextButton = document.querySelector(".carousel-arrow.next");
+    let currentIndex = 0;
+
+    function showImage(index) {
+      carouselImages.forEach((image, i) => {
+        if (i === index) {
+          image.style.transform = "translateX(0)";
+        } else {
+          image.style.transform = "translateX(100%)";
+        }
+      });
+    }
+
+    function showNextImage() {
+      currentIndex = (currentIndex + 1) % carouselImages.length;
+      showImage(currentIndex);
+    }
+
+    function showPreviousImage() {
+      currentIndex =
+        (currentIndex - 1 + carouselImages.length) % carouselImages.length;
+      showImage(currentIndex);
+    }
+
+    nextButton.addEventListener("click", showNextImage);
+    prevButton.addEventListener("click", showPreviousImage);
+  </script>
+</html>

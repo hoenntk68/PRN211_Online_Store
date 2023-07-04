@@ -1,0 +1,9 @@
+- Search icon: 
+        src="https://w7.pngwing.com/pngs/582/430/png-transparent-search-magnifier-find-zoom-glass-seo-optimization-instagram-icon.png"
+- Profile icon: 
+        src="https://cdn-icons-png.flaticon.com/512/6522/6522516.png"
+- Product template image:
+        src="https://media.istockphoto.com/id/1198863709/photo/skin-and-hair-care-beauty-product-mock-up-lotion-bottle-oil-cream-isolated-on-white-3d-render.jpg?s=612x612&w=0&k=20&c=_0-9dLUohaQrThH0669Ygx3Ar17rX0cRkXy0cEexfQw="
+        src="https://hips.hearstapps.com/hmg-prod/images/best-skincare-products-1656081764.jpg"
+        src="https://cdn.cliqueinc.com/posts/304628/new-skincare-2023-304628-1681041148575-main.700x0c.jpg"
+
