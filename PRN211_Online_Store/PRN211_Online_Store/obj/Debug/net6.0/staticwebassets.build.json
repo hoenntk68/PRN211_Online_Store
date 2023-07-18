@@ -1,11 +1,88 @@
 {
   "Version": 1,
-  "Hash": "yNWk+xNB2U6ecCqXHTwErRsoiBsIaXoT/CS84lcxZ90=",
+  "Hash": "lhzlcs4Fmxg31dHHs4NK6HueKr3+f68ioCbV1/NcJ1k=",
   "Source": "PRN211_Online_Store",
   "BasePath": "_content/PRN211_Online_Store",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "PRN211_Online_Store\\wwwroot",
+      "Source": "PRN211_Online_Store",
+      "ContentRoot": "D:\\FPT\\Term_5_SU23\\PRN211\\Online_Store\\PRN211_Online_Store\\PRN211_Online_Store\\wwwroot\\",
+      "BasePath": "_content/PRN211_Online_Store",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\FPT\\Term_5_SU23\\PRN211\\Online_Store\\PRN211_Online_Store\\PRN211_Online_Store\\wwwroot\\css\\FeedbackPage.css",
+      "SourceId": "PRN211_Online_Store",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FPT\\Term_5_SU23\\PRN211\\Online_Store\\PRN211_Online_Store\\PRN211_Online_Store\\wwwroot\\",
+      "BasePath": "_content/PRN211_Online_Store",
+      "RelativePath": "css/FeedbackPage.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\FeedbackPage.css"
+    },
+    {
+      "Identity": "D:\\FPT\\Term_5_SU23\\PRN211\\Online_Store\\PRN211_Online_Store\\PRN211_Online_Store\\wwwroot\\css\\Login.css",
+      "SourceId": "PRN211_Online_Store",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FPT\\Term_5_SU23\\PRN211\\Online_Store\\PRN211_Online_Store\\PRN211_Online_Store\\wwwroot\\",
+      "BasePath": "_content/PRN211_Online_Store",
+      "RelativePath": "css/Login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Login.css"
+    },
+    {
+      "Identity": "D:\\FPT\\Term_5_SU23\\PRN211\\Online_Store\\PRN211_Online_Store\\PRN211_Online_Store\\wwwroot\\css\\NavBar.css",
+      "SourceId": "PRN211_Online_Store",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FPT\\Term_5_SU23\\PRN211\\Online_Store\\PRN211_Online_Store\\PRN211_Online_Store\\wwwroot\\",
+      "BasePath": "_content/PRN211_Online_Store",
+      "RelativePath": "css/NavBar.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\NavBar.css"
+    },
+    {
+      "Identity": "D:\\FPT\\Term_5_SU23\\PRN211\\Online_Store\\PRN211_Online_Store\\PRN211_Online_Store\\wwwroot\\css\\ProductDetail.css",
+      "SourceId": "PRN211_Online_Store",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FPT\\Term_5_SU23\\PRN211\\Online_Store\\PRN211_Online_Store\\PRN211_Online_Store\\wwwroot\\",
+      "BasePath": "_content/PRN211_Online_Store",
+      "RelativePath": "css/ProductDetail.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\ProductDetail.css"
+    }
+  ]
 }

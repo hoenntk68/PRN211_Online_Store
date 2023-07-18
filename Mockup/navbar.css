@@ -22,7 +22,7 @@
 }
 
 .search-button {
-  background-image: url("https://w7.pngwing.com/pngs/582/430/png-transparent-search-magnifier-find-zoom-glass-seo-optimization-instagram-icon.png";) !important;
+  background-image: url("https://w7.pngwing.com/pngs/582/430/png-transparent-search-magnifier-find-zoom-glass-seo-optimization-instagram-icon.png") !important;
   /* background-color: #f9f9f9; */
   border: none;
   padding: 5px 10px;

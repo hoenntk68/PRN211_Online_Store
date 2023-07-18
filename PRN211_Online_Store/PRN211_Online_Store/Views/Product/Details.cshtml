@@ -1,0 +1,203 @@
+﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using PRN211_Online_Store.Models;
+@model Product;
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Details</title>
+    <link rel="stylesheet" href="/css/NavBar.css" />
+    <link rel="stylesheet" href="/css/ProductDetail.css" />
+    <style></style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <header class="header">
+        <div class="search-bar">
+            <input class="search-input"
+                   type="text"
+                   style="min-width: 300px"
+                   placeholder="Enter your search" />
+            <button class="search-button" type="submit">
+                <img src="https://w7.pngwing.com/pngs/582/430/png-transparent-search-magnifier-find-zoom-glass-seo-optimization-instagram-icon.png"
+                     alt="Search Icon"
+                     width="20"
+                     height="20" />
+            </button>
+        </div>
+        <div class="profile-section">
+            <div class="login-button">Login/Logout</div>
+            <div class="profile-icon dropdown">
+                <img src="https://cdn-icons-png.flaticon.com/512/6522/6522516.png"
+                     alt="Profile Icon"
+                     width="30"
+                     height="30" />
+                <div class="dropdown-content">
+                    <a href="#">Profile</a>
+                    <a href="#">Orders</a>
+                    <a href="#">Settings</a>
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+    @Html.Partial("_ProductView", Model)
+@*
+        <div class="product-wrapper">
+        <div class="product-images">
+        <div class="carousel">
+        <img class="carousel-image"
+        src="https://hips.hearstapps.com/hmg-prod/images/best-skincare-products-1656081764.jpg"
+        alt="Product Image" />
+        <img class="carousel-image"
+        src="https://media.istockphoto.com/id/1198863709/photo/skin-and-hair-care-beauty-product-mock-up-lotion-bottle-oil-cream-isolated-on-white-3d-render.jpg?s=612x612&w=0&k=20&c=_0-9dLUohaQrThH0669Ygx3Ar17rX0cRkXy0cEexfQw="
+        alt="Product Image" />
+        <img class="carousel-image"
+        src="https://cdn.cliqueinc.com/posts/304628/new-skincare-2023-304628-1681041148575-main.700x0c.jpg"
+        alt="Product Image" />
+        <div class="carousel-arrow prev">
+        <i class="far fa-arrow-alt-circle-left"></i>
+        </div>
+        <div class="carousel-arrow next">
+        <i class="far fa-arrow-alt-circle-right"></i>
+        </div>
+        </div>
+        </div>
+        <div class="product-info">
+        <h3>@Model.ProductName</h3>
+        <p>Price: @Model.UnitPrice₫</p>
+        <p>Units in Stock: @Model.StockUnit</p>
+        <p>Units Sold: @Model.SoldUnit</p>
+        <p>
+        Categories:
+        @foreach (Category c in Model.Categories)
+        {
+        <span>@c.CategoryName</span>
+        }
+        </p>
+        <p>
+        Variants:
+        </p>
+        @foreach (Variant c in Model.Variants)
+        {
+        <button style="border: 1px solid black">
+        @c.VariantName
+        </button>
+        }
+        </div>
+        </div>
+*@
+        <div class="product-description">
+            <h4>Thông tin sản phẩm</h4>
+            <p>@Model.ProductDescription</p>
+        </div>
+        <div class="feedbacks">
+            <h3>Đánh giá</h3>
+            @foreach (Feedback f in Model.Feedbacks)
+            {
+                <div class="feedback">
+                    <div class="feedback-user">
+                        <div class="feedback-avatar">
+                            <img src="https://media.istockphoto.com/id/1198863709/photo/skin-and-hair-care-beauty-product-mock-up-lotion-bottle-oil-cream-isolated-on-white-3d-render.jpg?s=612x612&w=0&k=20&c=_0-9dLUohaQrThH0669Ygx3Ar17rX0cRkXy0cEexfQw="
+                                 alt="User Avatar" />
+                        </div>
+                        <p>@f.UsernameNavigation.DisplayName</p>
+                    </div>
+                    <div class="feedback-stars">
+                        @for (int i = 1; i <= f.Rating; i++)
+                        {
+                            <i class="fas fa-star"></i>
+                        }
+                        @for (int i = 1; i <= 5 - f.Rating; i++)
+                        {
+                            <i class="fas fa-star grey"></i>
+                        }
+                    </div>
+                    <p class="feedback-comment">@f.Comment</p>
+                    <div class="feedback-images">
+                        <!-- Images for the first feedback -->
+                        <img class="feedback-image-zoom"
+                             src="https://media.istockphoto.com/id/1198863709/photo/skin-and-hair-care-beauty-product-mock-up-lotion-bottle-oil-cream-isolated-on-white-3d-render.jpg?s=612x612&w=0&k=20&c=_0-9dLUohaQrThH0669Ygx3Ar17rX0cRkXy0cEexfQw="
+                             alt="Feedback Image 1" />
+                        <img class="feedback-image-zoom"
+                             src="https://media.istockphoto.com/id/1198863709/photo/skin-and-hair-care-beauty-product-mock-up-lotion-bottle-oil-cream-isolated-on-white-3d-render.jpg?s=612x612&w=0&k=20&c=_0-9dLUohaQrThH0669Ygx3Ar17rX0cRkXy0cEexfQw="
+                             alt="Feedback Image 1" />
+                        <!-- Add more images here for the first feedback if needed -->
+                    </div>
+                </div>
+            }
+        </div>
+        <div id="imagePopup" class="image-popup">
+            <span class="close-button">&times;</span>
+            <img id="zoomedImage" class="zoomed-image" src="" alt="Zoomed Image" />
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+@*
+    <script>
+    const carousel = document.querySelector(".carousel");
+    const carouselImages = Array.from(
+    document.querySelectorAll(".carousel-image")
+    );
+    const prevButton = document.querySelector(".carousel-arrow.prev");
+    const nextButton = document.querySelector(".carousel-arrow.next");
+    let currentIndex = 0;
+
+    function showImage(index) {
+    carouselImages.forEach((image, i) => {
+    if (i === index) {
+    image.style.transform = "translateX(0)";
+    } else {
+    image.style.transform = "translateX(100%)";
+    }
+    });
+    }
+
+    function showNextImage() {
+    currentIndex = (currentIndex + 1) % carouselImages.length;
+    showImage(currentIndex);
+    }
+
+    function showPreviousImage() {
+    currentIndex =
+    (currentIndex - 1 + carouselImages.length) % carouselImages.length;
+    showImage(currentIndex);
+    }
+
+    nextButton.addEventListener("click", showNextImage);
+    prevButton.addEventListener("click", showPreviousImage);
+    </script>
+
+    *@
+    <script>
+        $(document).ready(function () {
+            // Handle click on feedback images
+            $(".feedback-image-zoom").on("click", function () {
+                // Get the source of the clicked image
+                const src = $(this).attr("src");
+                
+                // Set the source of the zoomed image popup
+                $("#zoomedImage").attr("src", src);
+
+                // Show the popup
+                $("#imagePopup").fadeIn();
+            });
+
+            // Handle click on close button to hide the popup
+            $(".close-button").on("click", function () {
+                $("#imagePopup").fadeOut();
+            });
+        });
+    </script>
+</body>
+</html>

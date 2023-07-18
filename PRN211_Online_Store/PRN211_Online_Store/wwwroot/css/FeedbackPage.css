@@ -1,0 +1,96 @@
+﻿body {
+}
+/*Style the form */
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.feedback-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.star-rating {
+    display: block;
+    margin-bottom: 25px;
+    direction: rtl;
+    text-align: center;
+    margin-top: 50px;
+}
+
+    .star-rating input[type="radio"] {
+        display: none;
+    }
+
+    .star-rating > label {
+        color: #ccc;
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        font-size: 50px;
+    }
+
+        .star-rating > label:hover,
+        .star-rating > label:hover ~ label,
+        .star-rating > input[type="radio"]:checked ~ label {
+            color: #f2b600;
+        }
+
+/* .image-upload-section {
+        margin-bottom: 20px;
+      } */
+
+
+.image-upload-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.image-upload-section {
+    margin-bottom: 20px;
+}
+
+    .image-upload-section label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+.image-preview-section {
+    margin-bottom: 20px;
+}
+
+.image-preview-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .image-preview-container img {
+        width: 200px;
+        height: auto;
+        margin: 5px;
+    }
+
+.comment-section {
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+}
+
+input[type="submit"] {
+    background-color: #337ab7;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+    input[type="submit"]:hover {
+        background-color: #23527c;
+    }

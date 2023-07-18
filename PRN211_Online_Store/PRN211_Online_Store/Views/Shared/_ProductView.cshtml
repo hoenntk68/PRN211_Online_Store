@@ -1,0 +1,86 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using PRN211_Online_Store.Models;
+@model Product;
+
+<div class="product-wrapper">
+    <div class="product-images">
+        <div class="carousel">
+            <img class="carousel-image"
+                 src="https://hips.hearstapps.com/hmg-prod/images/best-skincare-products-1656081764.jpg"
+                 alt="Product Image" />
+            <img class="carousel-image"
+                 src="https://media.istockphoto.com/id/1198863709/photo/skin-and-hair-care-beauty-product-mock-up-lotion-bottle-oil-cream-isolated-on-white-3d-render.jpg?s=612x612&w=0&k=20&c=_0-9dLUohaQrThH0669Ygx3Ar17rX0cRkXy0cEexfQw="
+                 alt="Product Image" />
+            <img class="carousel-image"
+                 src="https://cdn.cliqueinc.com/posts/304628/new-skincare-2023-304628-1681041148575-main.700x0c.jpg"
+                 alt="Product Image" />
+            <div class="carousel-arrow prev">
+                <i class="fas fa-angle-left"></i>
+
+            </div>
+            <div class="carousel-arrow next">
+                <i class="fas fa-angle-right"></i>
+            </div>
+        </div>
+    </div>
+    <div class="product-info">
+        <h3>@Model.ProductName</h3>
+        <p>Price: @Model.UnitPrice₫</p>
+        <p>Units in Stock: @Model.StockUnit</p>
+        <p>Units Sold: @Model.SoldUnit</p>
+        <p>
+            Categories:
+            @foreach (Category c in Model.Categories)
+            {
+                <span>@c.CategoryName</span>
+            }
+        </p>
+        <p>
+            Variants:
+        </p>
+        @foreach (Variant c in Model.Variants)
+        {
+            <button style="border: 1px solid black">
+                @c.VariantName
+            </button>
+        }
+    </div>
+</div>
+
+<script>
+    const carousel = document.querySelector(".carousel");
+    const carouselImages = Array.from(
+        document.querySelectorAll(".carousel-image")
+    );
+    const prevButton = document.querySelector(".carousel-arrow.prev");
+    const nextButton = document.querySelector(".carousel-arrow.next");
+    let currentIndex = 0;
+
+    function showImage(index) {
+        carouselImages.forEach((image, i) => {
+            if (i === index) {
+                image.style.transform = "translateX(0)";
+            } else {
+                image.style.transform = "translateX(100%)";
+            }
+        });
+    }
+
+    function showNextImage() {
+        currentIndex = (currentIndex + 1) % carouselImages.length;
+        showImage(currentIndex);
+    }
+
+    function showPreviousImage() {
+        currentIndex =
+            (currentIndex - 1 + carouselImages.length) % carouselImages.length;
+        showImage(currentIndex);
+    }
+
+    nextButton.addEventListener("click", showNextImage);
+    prevButton.addEventListener("click", showPreviousImage);
+</script>

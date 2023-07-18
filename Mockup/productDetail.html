@@ -14,23 +14,6 @@
 
       /* Product description */
 
-      .product-description {
-        margin-bottom: 20px;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-      }
-
-      .product-description h4 {
-        font-size: 16px;
-        margin-bottom: 5px;
-      }
-
-      .product-description p {
-        color: #333;
-        margin: 0;
-      }
-
       .feedbacks {
         margin-top: 30px;
       }
@@ -89,6 +72,12 @@
       .feedback-comment {
         color: #333;
         margin: 0;
+      }
+
+      .feedback-images img {
+        max-width: 100px;
+        max-height: 100px;
+        margin-right: 5px;
       }
     </style>
     <link
@@ -204,6 +193,20 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae
             urna at tortor porttitor tempus.
           </p>
+          <div class="feedback-images">
+            <!-- Images for the first feedback -->
+            <img
+              class="feedback-image-zoom"
+              src="https://media.istockphoto.com/id/1198863709/photo/skin-and-hair-care-beauty-product-mock-up-lotion-bottle-oil-cream-isolated-on-white-3d-render.jpg?s=612x612&w=0&k=20&c=_0-9dLUohaQrThH0669Ygx3Ar17rX0cRkXy0cEexfQw="
+              alt="Feedback Image 1"
+            />
+            <img
+              class="feedback-image-zoom"
+              src="https://media.istockphoto.com/id/1198863709/photo/skin-and-hair-care-beauty-product-mock-up-lotion-bottle-oil-cream-isolated-on-white-3d-render.jpg?s=612x612&w=0&k=20&c=_0-9dLUohaQrThH0669Ygx3Ar17rX0cRkXy0cEexfQw="
+              alt="Feedback Image 1"
+            />
+            <!-- Add more images here for the first feedback if needed -->
+          </div>
         </div>
         <div class="feedback">
           <div class="feedback-user">
@@ -227,6 +230,10 @@
             urna at tortor porttitor tempus.
           </p>
         </div>
+      </div>
+      <div id="imagePopup" class="image-popup">
+        <span class="close-button">&times;</span>
+        <img id="zoomedImage" class="zoomed-image" src="" alt="Zoomed Image" />
       </div>
     </div>
     <script>
@@ -261,6 +268,28 @@
 
       nextButton.addEventListener("click", showNextImage);
       prevButton.addEventListener("click", showPreviousImage);
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Handle click on feedback images
+        $(".feedback-image-zoom").on("click", function () {
+          // Get the source of the clicked image
+          const src = $(this).attr("src");
+
+          // Set the source of the zoomed image popup
+          $("#zoomedImage").attr("src", src);
+          console.log(document.getElementById("zoomedImage"));
+
+          // Show the popup
+          $("#imagePopup").fadeIn();
+        });
+
+        // Handle click on close button to hide the popup
+        $(".close-button").on("click", function () {
+          $("#imagePopup").fadeOut();
+        });
+      });
     </script>
   </body>
 </html>

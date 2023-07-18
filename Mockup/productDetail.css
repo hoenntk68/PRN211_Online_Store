@@ -91,3 +91,61 @@
   color: #777;
   margin-bottom: 5px;
 }
+
+/* Product description */
+
+.product-description {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.product-description h4 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.product-description p {
+  color: #333;
+  margin: 0;
+}
+
+/* POP UP IMG */
+/* The rest of the CSS remains the same */
+
+/* Popup box styles */
+.image-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Zoomed image styles within the popup */
+.zoomed-image {
+  max-width: 90%;
+  max-height: 90%;
+  display: block;
+  margin: 15vh auto;
+}
+
+/* Close button styles */
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.close-button:hover {
+  color: red; /* Change the color when hovering over the close button */
+}
