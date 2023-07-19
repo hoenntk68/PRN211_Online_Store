@@ -127,7 +127,6 @@
         margin-bottom: 20px;
       } */
 
-
       .image-upload-form {
         max-width: 500px;
         margin: 0 auto;
@@ -370,8 +369,8 @@
           <i class="fa fa-star"></i>
         </label>
       </div>
-
-      <!-- <div class="image-upload-section">
+    </form>
+    <!-- <div class="image-upload-section">
         <label for="images">Upload images:</label>
         <input
           type="file"
@@ -383,18 +382,29 @@
         
       </div> -->
 
-      <h1>Image Upload</h1>
-  
-      <form class="image-upload-form" action="submit-form.php" method="POST" enctype="multipart/form-data">
-        <div class="image-upload-section">
-          <label for="images">Upload Images:</label>
-          <input type="file" name="images" id="images" accept="image/*" multiple>
-        </div>
-        
-        <div class="image-preview-section">
-          <h3>Image Preview:</h3>
-          <div class="image-preview-container"></div>
-        </div>
+    <h1>Image Upload</h1>
+
+    <form
+      class="image-upload-form"
+      action="submit-form.php"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <div class="image-upload-section">
+        <label for="images">Upload Images:</label>
+        <input
+          type="file"
+          name="images"
+          id="images"
+          accept="image/*"
+          multiple
+        />
+      </div>
+
+      <div class="image-preview-section">
+        <h3>Image Preview:</h3>
+        <div class="image-preview-container"></div>
+      </div>
 
       <div class="comment-section">
         <label for="comment">Leave a comment:</label>
@@ -444,19 +454,21 @@
     prevButton.addEventListener("click", showPreviousImage);
 
     /*-----------------------IMAGE PREVIEW-------------------------*/
-    const imageUploadInput = document.getElementById('images');
-    const imagePreviewContainer = document.querySelector('.image-preview-container');
+    const imageUploadInput = document.getElementById("images");
+    const imagePreviewContainer = document.querySelector(
+      ".image-preview-container"
+    );
 
-    imageUploadInput.addEventListener('change', function() {
-      imagePreviewContainer.innerHTML = ''; // Clear existing previews
+    imageUploadInput.addEventListener("change", function () {
+      imagePreviewContainer.innerHTML = ""; // Clear existing previews
 
       // Loop through selected files and create previews
       for (let i = 0; i < this.files.length; i++) {
         const file = this.files[i];
         const reader = new FileReader();
 
-        reader.onload = function(event) {
-          const imagePreview = document.createElement('img');
+        reader.onload = function (event) {
+          const imagePreview = document.createElement("img");
           imagePreview.src = event.target.result;
           imagePreviewContainer.appendChild(imagePreview);
         };

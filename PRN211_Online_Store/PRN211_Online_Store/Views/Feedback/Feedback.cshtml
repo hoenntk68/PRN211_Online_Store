@@ -1,4 +1,5 @@
-﻿@*
+﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -11,12 +12,9 @@
     <title>Product Feedback</title>
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-    <!-- <link rel="stylesheet" href="styles.css" /> -->
     <link rel="stylesheet" href="~/css/NavBar.css" />
     <link rel="stylesheet" href="~/css/FeedbackPage.css" />
     <link rel="stylesheet" href="~/css/ProductDetail.css" />
-    <!-- <script src="./carousel.js"></script> -->
-    <!-- <script src="./imagePreview.js"></script> -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -275,7 +273,8 @@
     </style>
 </head>
 <body>
-    <header class="header">
+    @Html.Partial("_NavBar")
+@*    <header class="header">
         <div class="search-bar">
             <input class="search-input"
                    type="text"
@@ -304,89 +303,55 @@
             </div>
         </div>
     </header>
+   *@
     <hr />
     @Html.Partial("_ProductView", Model)
-@*
-        <div class="product-wrapper">
-        <div class="product-images">
-            <div class="carousel">
-                <img class="carousel-image"
-                     src="https://hips.hearstapps.com/hmg-prod/images/best-skincare-products-1656081764.jpg"
-                     alt="Product Image" />
-                <img class="carousel-image"
-                     src="https://media.istockphoto.com/id/1198863709/photo/skin-and-hair-care-beauty-product-mock-up-lotion-bottle-oil-cream-isolated-on-white-3d-render.jpg?s=612x612&w=0&k=20&c=_0-9dLUohaQrThH0669Ygx3Ar17rX0cRkXy0cEexfQw="
-                     alt="Product Image" />
-                <img class="carousel-image"
-                     src="https://cdn.cliqueinc.com/posts/304628/new-skincare-2023-304628-1681041148575-main.700x0c.jpg"
-                     alt="Product Image" />
-                <div class="carousel-arrow prev">
-                    <i class="fas fa-angle-left"></i>
-                </div>
-                <div class="carousel-arrow next">
-                    <i class="fas fa-angle-right"></i>
-                </div>
-            </div>
-        </div>
-        <div class="product-info">
-            <h3>Product Name</h3>
-            <p>Price: $XX</p>
-            <p>Units in Stock: XX</p>
-            <p>Units Sold: XX</p>
-            <p>Categories: Category 1, Category 2, Category 3</p>
-            <p>Variants: Variant 1, Variant 2, Variant 3</p>
-        </div>
-    </div>
-*@
     <hr />
     <h1>Product Feedback</h1>
-
-    <form class="feedback-form"
-          action="submit-feedback.php"
-          method="POST"
-          enctype="multipart/form-data">
+    <form 
+        class="feedback-form"
+        method="POST"
+        asp-controller="Feedback"
+        asp-action="CreateFeedback"
+        asp-route-productId="@Model.ProductId"
+        enctype="multipart/form-data"
+    >
         <p for="rating">Rate the product:</p>
         <div class="star-rating">
-            <input id="star-5x" type="radio" name="rating" value="star-5" />
+            <input id="star-5x" type="radio" name="rating" value="5" />
             <label for="star-5x" title="5 stars">
                 <i class="fa fa-star"></i>
             </label>
 
-            <input id="star-4x" type="radio" name="rating" value="star-4" />
+            <input id="star-4x" type="radio" name="rating" value="4" />
             <label for="star-4x" title="4 stars">
                 <i class="fa fa-star"></i>
             </label>
 
-            <input id="star-3x" type="radio" name="rating" value="star-3" checked />
+            <input id="star-3x" type="radio" name="rating" value="3" />
             <label for="star-3x" title="3 stars">
                 <i class="fa fa-star"></i>
             </label>
 
-            <input id="star-2x" type="radio" name="rating" value="star-2" />
+            <input id="star-2x" type="radio" name="rating" value="2" />
             <label for="star-2x" title="2 stars">
                 <i class="fa fa-star"></i>
             </label>
 
-            <input id="star-1x" type="radio" name="rating" value="star-1" />
+            <input id="star-1x" type="radio" name="rating" value="1" />
             <label for="star-1x" title="1 star">
                 <i class="fa fa-star"></i>
             </label>
         </div>
+        @*
 
-        <!-- <div class="image-upload-section">
-          <label for="images">Upload images:</label>
-          <input
-            type="file"
-            name="images"
-            id="images"
-            accept="image/*"
-            multiple
-          />
-
-        </div> -->
-
+    </form>
+        *@
         <h1>Image Upload</h1>
-
-        <form class="image-upload-form" action="submit-form.php" method="POST" enctype="multipart/form-data">
+    @*
+    <form class="image-upload-form" action="submit-form.php" method="POST" enctype="multipart/form-data">
+    *@
+        <div class="image-upload-form">
             <div class="image-upload-section">
                 <label for="images">Upload Images:</label>
                 <input type="file" name="images" id="images" accept="image/*" multiple>
@@ -396,52 +361,23 @@
                 <h3>Image Preview:</h3>
                 <div class="image-preview-container"></div>
             </div>
+        </div>
+        <div class="comment-section">
+            <label for="comment">Leave a comment:</label>
+            <textarea 
+                name="comment"
+                id="comment"
+                rows="5"
+                placeholder="Enter your comment"
+            >
+            </textarea>
+        </div>
 
-            <div class="comment-section">
-                <label for="comment">Leave a comment:</label>
-                <textarea name="comment"
-                          id="comment"
-                          rows="5"
-                          placeholder="Enter your comment"></textarea>
-            </div>
-
-            <input type="submit" value="Submit Feedback" />
-        </form>
-        <hr />
+        <input type="submit" value="Submit Feedback" />
+    </form>
+    <hr />
 </body>
 <script>
-    const carousel = document.querySelector(".carousel");
-    const carouselImages = Array.from(
-        document.querySelectorAll(".carousel-image")
-    );
-    const prevButton = document.querySelector(".carousel-arrow.prev");
-    const nextButton = document.querySelector(".carousel-arrow.next");
-    let currentIndex = 0;
-
-    function showImage(index) {
-        carouselImages.forEach((image, i) => {
-            if (i === index) {
-                image.style.transform = "translateX(0)";
-            } else {
-                image.style.transform = "translateX(100%)";
-            }
-        });
-    }
-
-    function showNextImage() {
-        currentIndex = (currentIndex + 1) % carouselImages.length;
-        showImage(currentIndex);
-    }
-
-    function showPreviousImage() {
-        currentIndex =
-            (currentIndex - 1 + carouselImages.length) % carouselImages.length;
-        showImage(currentIndex);
-    }
-
-    nextButton.addEventListener("click", showNextImage);
-    prevButton.addEventListener("click", showPreviousImage);
-
     /*-----------------------IMAGE PREVIEW-------------------------*/
     const imageUploadInput = document.getElementById('images');
     const imagePreviewContainer = document.querySelector('.image-preview-container');

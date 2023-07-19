@@ -20,30 +20,25 @@ h1 {
     margin-top: 50px;
 }
 
-    .star-rating input[type="radio"] {
-        display: none;
-    }
+.star-rating input[type="radio"] {
+    display: none;
+}
 
-    .star-rating > label {
-        color: #ccc;
-        -webkit-transition: all 0.2s ease-in-out;
-        -moz-transition: all 0.2s ease-in-out;
-        -o-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
-        cursor: pointer;
-        font-size: 50px;
-    }
+.star-rating > label {
+    color: #ccc;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-size: 50px;
+}
 
-        .star-rating > label:hover,
-        .star-rating > label:hover ~ label,
-        .star-rating > input[type="radio"]:checked ~ label {
-            color: #f2b600;
-        }
-
-/* .image-upload-section {
-        margin-bottom: 20px;
-      } */
-
+.star-rating > label:hover,
+.star-rating > label:hover ~ label,
+.star-rating > input[type="radio"]:checked ~ label {
+    color: #f2b600;
+}
 
 .image-upload-form {
     max-width: 500px;
@@ -54,10 +49,10 @@ h1 {
     margin-bottom: 20px;
 }
 
-    .image-upload-section label {
-        display: block;
-        margin-bottom: 5px;
-    }
+.image-upload-section label {
+    display: block;
+    margin-bottom: 5px;
+}
 
 .image-preview-section {
     margin-bottom: 20px;
@@ -68,11 +63,11 @@ h1 {
     flex-wrap: wrap;
 }
 
-    .image-preview-container img {
-        width: 200px;
-        height: auto;
-        margin: 5px;
-    }
+.image-preview-container img {
+    width: 200px;
+    height: auto;
+    margin: 5px;
+}
 
 .comment-section {
     margin-bottom: 20px;
@@ -91,6 +86,6 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-    input[type="submit"]:hover {
-        background-color: #23527c;
-    }
+input[type="submit"]:hover {
+    background-color: #23527c;
+}

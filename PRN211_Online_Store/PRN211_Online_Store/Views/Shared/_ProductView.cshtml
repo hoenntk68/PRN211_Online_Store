@@ -9,15 +9,12 @@
 <div class="product-wrapper">
     <div class="product-images">
         <div class="carousel">
+            @foreach (ProductAttachment pa in Model.ProductAttachments)
+            {
             <img class="carousel-image"
-                 src="https://hips.hearstapps.com/hmg-prod/images/best-skincare-products-1656081764.jpg"
-                 alt="Product Image" />
-            <img class="carousel-image"
-                 src="https://media.istockphoto.com/id/1198863709/photo/skin-and-hair-care-beauty-product-mock-up-lotion-bottle-oil-cream-isolated-on-white-3d-render.jpg?s=612x612&w=0&k=20&c=_0-9dLUohaQrThH0669Ygx3Ar17rX0cRkXy0cEexfQw="
-                 alt="Product Image" />
-            <img class="carousel-image"
-                 src="https://cdn.cliqueinc.com/posts/304628/new-skincare-2023-304628-1681041148575-main.700x0c.jpg"
-                 alt="Product Image" />
+                 src="/img/@pa.FilePath"
+                 alt="@Model.ProductName" />
+            }
             <div class="carousel-arrow prev">
                 <i class="fas fa-angle-left"></i>
 

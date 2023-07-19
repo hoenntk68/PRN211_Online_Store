@@ -27,7 +27,13 @@ INSERT INTO [User] (username, password, displayName) VALUES ('phuonghm', '123654
 INSERT INTO [User] (username, password, displayName) VALUES ('tamvm', '123663', N'Vũ Minh Tâm');
 INSERT INTO [User] (username, password, displayName) VALUES ('thanhdq', '123672', N'Đặng Quang Thanh');
 INSERT INTO [User] (username, password, displayName) VALUES ('thinhnp', '123681', N'Nguyễn Phùng Thịnh');
-
+UPDATE [User] SET avatarPath = 
+(SELECT CASE 
+	WHEN CAST(password AS int) % 5 = 1 THEN 'du1.jpg' 
+	WHEN CAST(password AS int) % 5 = 2 THEN 'du2.jpg' 
+	WHEN CAST(password AS int) % 5 = 3 THEN 'du3.jpg' 
+	WHEN CAST(password AS int) % 5 = 4 THEN 'du4.jpg' 
+	ELSE 'du5.jpg' END);
 
 -- INSERT INTO [Product]
 INSERT INTO [Product] (productName, stockUnit, soldUnit, unitPrice , productDescription) VALUES (N'Chảo Đá Chống Dính KHÔNG TỪ SUNHOUSE', '916', '21400', '0 ', N'Chảo Đá Chống Dính SUNHOUSE Size 24-30cm SBD 24-30
@@ -297,37 +303,36 @@ INSERT INTO [ProductCategory] (productId, categoryId) VALUES ('10', '1');
 
 
 -- INSERT INTO [ProductAttachment]
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('1', 'Image', 'https://cdn.tgdd.vn/Products/Images/2403/74534/chao-chong-dinh-sunhouse-sbds-28-700x467-1.jpg', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('1', 'Image', 'https://image.jimcdn.com/app/cms/image/transf/none/path/s2ae7fadc5237b1e3/image/i8b0a1acfc990dc67/version/1581268183/ch%E1%BA%A3o-ch%E1%BB%91ng-d%C3%ADnh-%C4%91%C3%A1-hoa-c%C6%B0%C6%A1ng.jpg', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('1', 'Image', 'https://vietreview.vn/wp-content/uploads/2020/05/chao-van-da-chong-dinh-lock-lock-stone-26cm-4-350x350.jpg', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('1', 'Image', 'https://sunhouse.com.vn/pic/general/images/sunhouse-sfp24b_0011.jpg', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('2', 'Image', 'https://salt.tikicdn.com/cache/w1200/ts/product/23/0c/98/ec69b481d684fd4e41cd17ead5631d5a.jpg', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('2', 'Image', 'https://tradingmedicalnamanh.vn/watermark/product/1000x0x1/upload/product/5d-mask-chun-4-8826.jpg', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('2', 'Image', 'https://vn-test-11.slatic.net/p/4508fa7f9b5592b6db6ef83cc802d003.jpg_501x501q90.jpg', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('3', 'Image', 'https://lh3.googleusercontent.com/51Qmw59AsoaMJ7ZCkGI50OdqAgvW93saXTQXSRoboU2W-Eayx94xHwqKAAes7MUDHT7naYjjwbg7Q1di3n2ie2DERzV9oFs', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('3', 'Image', 'https://vn-test-11.slatic.net/p/19480f1539dbe3fc90408913dc7d20fa.jpg', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('3', 'Image', 'https://salt.tikicdn.com/cache/w1200/media/catalog/producttmp/0b/5c/27/22612b9c943e0ad829912e62baa26d2e.png', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('4', 'Image', 'https://vn-live-01.slatic.net/p/f2cfeb179f6d94250b23b75a9663cee7.png', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('4', 'Image', 'https://pos.nvncdn.net/5f3840-119888/ps/20230301_nACKb0Qqej3Chpdu.jpeg', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('4', 'Image', 'https://vn-live-01.slatic.net/p/aebd9319ea05f5dcc75d39f944113418.jpg', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('4', 'Image', 'https://vn-live-01.slatic.net/p/2eae89b7d4607339094d3a0aa2a5ca89.jpg', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('5', 'Image', 'https://vn-live-01.slatic.net/p/6b31a84d5807dec2ffb5b56107f0c595.jpg', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('5', 'Image', 'https://dongphuchaianh.vn/wp-content/uploads/2022/08/Gioi-thieu-ao-so-mi-nu-co-vest.jpeg', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('5', 'Image', 'https://vn-test-11.slatic.net/p/ea85102dee99b09aec7f4eb43d7367cf.jpg', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('6', 'Image', 'https://file.hstatic.net/200000274675/file/artboard_8-100_ae42c2425120492fadab886c15a68a4e.jpg', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('6', 'Image', 'https://newtechshop.vn/wp-content/uploads/2022/11/3-3.jpg', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('6', 'Image', 'https://bedental.vn/wp-content/uploads/2022/11/2-15.jpg', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('7', 'Image', 'https://images-2.eucerin.com/~/media/eucerin%20relaunch%20media/eucerin/local/vn/eucerin_packshot_proacne.jpg?rx=0&ry=0&rw=2000&rh=2000', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('7', 'Image', 'https://media.hasaki.vn/wysiwyg/Chau/sua-rua-mat-eucerin-diu-nhe-cho-da-nhay-cam-1.jpg', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('8', 'Image', 'https://image.cocoonvietnam.com/uploads/29892142_slide_3_aeb65b422b.jpg', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('8', 'Image', 'https://media.hasaki.vn/catalog/product/f/a/facebook-dynamic-kem-duong-cocoon-duong-am-dang-thach-tu-hoa-hong-30ml.jpg', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('9', 'Image', 'https://cdn.shopify.com/s/files/1/0036/9773/7777/products/DIM5_b46ad49a-e099-4e87-892f-70bc831d11c0_950x.jpg?v=1668911701', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('9', 'Image', 'https://salt.tikicdn.com/cache/w1200/ts/product/33/89/9e/bbf3f7f8fcf18fd5e2f249b635367112.jpg', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('9', 'Image', 'https://cf.shopee.vn/file/37887644f0bd0a32554e2a4abd4b2641', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('10', 'Image', 'https://cf.shopee.vn/file/5a88ae0a5cab7492817582174faf3abe', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('10', 'Image', 'https://cf.shopee.vn/file/sg-11134201-22110-a3zclhlmrgkvbf', '');
-INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('10', 'Image', 'https://cdn.yeep.vn/2023/03/e9f3fcb1c2eedda9466c363a5ba05c3f.jpg', '');
-
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('1', 'Image', 'chao-chong-dinh-sunhouse-sbds-28-700x467-1.jpg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('1', 'Image', '1581268183.jpg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('1', 'Image', 'chao-van-da-chong-dinh-lock-lock-stone-26cm-4-350x350.jpg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('1', 'Image', 'sunhouse-sfp24b_0011.jpg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('2', 'Image', 'ec69b481d684fd4e41cd17ead5631d5a.jpg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('2', 'Image', '5d-mask-chun-4-8826.jpg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('2', 'Image', '4508fa7f9b5592b6db6ef83cc802d003.jpg_501x501q90.jpg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('3', 'Image', 'unnamed.png', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('3', 'Image', '19480f1539dbe3fc90408913dc7d20fa.jpg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('3', 'Image', '22612b9c943e0ad829912e62baa26d2e.png', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('4', 'Image', 'f2cfeb179f6d94250b23b75a9663cee7.png', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('4', 'Image', '20230301_nACKb0Qqej3Chpdu.jpeg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('4', 'Image', 'aebd9319ea05f5dcc75d39f944113418.jpg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('4', 'Image', '2eae89b7d4607339094d3a0aa2a5ca89.jpg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('5', 'Image', '6b31a84d5807dec2ffb5b56107f0c595.jpg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('5', 'Image', 'Gioi-thieu-ao-so-mi-nu-co-vest.jpeg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('5', 'Image', 'ea85102dee99b09aec7f4eb43d7367cf.jpg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('6', 'Image', 'artboard_8-100_ae42c2425120492fadab886c15a68a4e.webp', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('6', 'Image', '3-3.jpg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('6', 'Image', '2-15.jpg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('7', 'Image', 'Eucerin_Packshot_ProACNE.jpg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('7', 'Image', 'sua-rua-mat-eucerin-diu-nhe-cho-da-nhay-cam-1.jpg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('8', 'Image', '29892142_slide_3_aeb65b422b.jpg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('8', 'Image', 'facebook-dynamic-kem-duong-cocoon-duong-am-dang-thach-tu-hoa-hong-30ml.jpg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('9', 'Image', 'DIM5_b46ad49a-e099-4e87-892f-70bc831d11c0_950x.jpg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('9', 'Image', 'bbf3f7f8fcf18fd5e2f249b635367112.jpg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('9', 'Image', '37887644f0bd0a32554e2a4abd4b2641.jpg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('10', 'Image', '5a88ae0a5cab7492817582174faf3abe.jpg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('10', 'Image', 'sg-11134201-22110-a3zclhlmrgkvbf.jpg', '');
+INSERT INTO [ProductAttachment] (productId, fileType, filePath, description) VALUES ('10', 'Image', 'e9f3fcb1c2eedda9466c363a5ba05c3f.jpg', '');
 
 
 -- INSERT INTO [Feedback]
