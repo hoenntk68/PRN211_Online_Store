@@ -17,5 +17,19 @@ namespace PRN211_Online_Store.Controllers
             Product p = ProductService.FindById(id);
             return View(p);
         }
+
+        public IActionResult Search(string toSearch)
+        {
+            List<Product> productsFound = ProductService.SearchProduct(toSearch);
+            if (productsFound != null)
+            {
+                return View("HomePage", productsFound);
+
+            }
+            else
+            {
+                return RedirectToAction("Login", "Authen");
+            }
+        }
     }
 }

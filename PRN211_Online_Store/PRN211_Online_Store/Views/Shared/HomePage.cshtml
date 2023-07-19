@@ -43,45 +43,17 @@
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="search-bar">
-            <input class="search-input"
-                   type="text"
-                   style="min-width: 300px"
-                   placeholder="Enter your search" />
-            <button class="search-button" type="submit">
-                <img src="https://w7.pngwing.com/pngs/582/430/png-transparent-search-magnifier-find-zoom-glass-seo-optimization-instagram-icon.png"
-                     alt="Search Icon"
-                     width="20"
-                     height="20" />
-            </button>
-        </div>
-        <div class="profile-section">
-            <div class="login-button">Login/Logout</div>
-            <div class="profile-icon dropdown">
-                <img src="https://cdn-icons-png.flaticon.com/512/6522/6522516.png"
-                     alt="Profile Icon"
-                     width="30"
-                     height="30" />
-                <div class="dropdown-content">
-                    <a href="#">Profile</a>
-                    <a href="#">Orders</a>
-                    <a href="#">Settings</a>
-                    <a href="#">Logout</a>
-                </div>
-            </div>
-        </div>
-    </header>
-
+    @Html.Partial("_NavBar")
     <section class="product-section">
         <div class="product">
             @foreach (Product p in Model)
             {
+                string filename = p.ProductAttachments.FirstOrDefault()?.FilePath;
                 <a href="/Product/Details/@p.ProductId" style="text-decoration: none; color: black">
                     <div class="product-item">
                         <img class="product-image"
-                             src="product1.jpg"
-                             alt="Product @p.ProductId"
+                             src="/img/@filename"
+                             alt="Product @filename"
                              width="150"
                              height="150" />
                         <div class="product-title">@p.ProductName</div>
@@ -91,7 +63,5 @@
             }
         </div>
     </section>
-
-    <!-- Add the rest of your page content here -->
 </body>
 </html>

@@ -7,7 +7,11 @@
     padding: 10px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+}
+
+.header .home-icon {
+
 }
 
 .search-bar {
@@ -25,8 +29,8 @@
 }
 
 .search-button {
-    background-image: url("https://w7.pngwing.com/pngs/582/430/png-transparent-search-magnifier-find-zoom-glass-seo-optimization-instagram-icon.png") !important;
-    /* background-color: #f9f9f9; */
+    /*    background-image: url("https://w7.pngwing.com/pngs/582/430/png-transparent-search-magnifier-find-zoom-glass-seo-optimization-instagram-icon.png") !important;*/
+    background-color: #f6f6f6;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
