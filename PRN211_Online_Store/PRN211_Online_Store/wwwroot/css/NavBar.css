@@ -10,9 +10,8 @@
     justify-content: space-around;
 }
 
-.header .home-icon {
-
-}
+    .header .home-icon {
+    }
 
 .search-bar {
     display: flex;
@@ -50,8 +49,13 @@
     cursor: pointer;
 }
 
+    .login-button a {
+        text-decoration: none
+    }
+
 .profile-icon {
     cursor: pointer;
+    border-radius: 50%;
 }
 
 /* Dropdown menu styles */
@@ -63,6 +67,7 @@
 .dropdown-content {
     display: none;
     position: absolute;
+    right: 0;
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);

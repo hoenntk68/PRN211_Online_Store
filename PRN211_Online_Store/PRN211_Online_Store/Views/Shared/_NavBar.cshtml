@@ -3,6 +3,9 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    string username = Context.Session.GetString("username");
+    string role = Context.Session.GetString("role");
+    string avatar = Context.Session.GetString("avatar");
 }
 <link href="/css/NavBar.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
@@ -31,18 +34,41 @@
         </form>
     </div>
     <div class="profile-section">
-        <div class="login-button">Login/Logout</div>
-        <div class="profile-icon dropdown">
-            <img src="https://cdn-icons-png.flaticon.com/512/6522/6522516.png"
-                 alt="Profile Icon"
-                 width="30"
-                 height="30" />
+        <div class="profile-icon dropdown" style="margin-right: 50px">
+            @if (username != null)
+            {
+
+                <img src="/img/@avatar"
+                     alt="Profile Icon"
+                     width="30"
+                     height="30" />
+            }
+            else
+            {
+                <img src="https://cdn-icons-png.flaticon.com/512/6522/6522516.png"
+                     alt="Profile Icon"
+                     width="30"
+                     height="30" />
+            }
             <div class="dropdown-content">
-                <a href="#">Profile</a>
+                <a href="#">Add Product</a>
                 <a href="#">Orders</a>
-                <a href="#">Settings</a>
-                <a href="#">Logout</a>
             </div>
         </div>
+        <div class="login-button">
+            @if (username == null)
+            {
+                <a href="/Authen/Login" >
+                    Login
+                </a>
+            }
+            else
+            {
+                <a href="/Authen/Logout" style="text-decoration: none">
+                    Logout
+                </a>
+            }
+        </div>
+
     </div>
 </header>

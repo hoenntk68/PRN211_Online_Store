@@ -1,4 +1,5 @@
-﻿using PRN211_Online_Store.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using PRN211_Online_Store.Models;
 
 namespace PRN211_Online_Store.Services
 {
@@ -9,7 +10,9 @@ namespace PRN211_Online_Store.Services
         {
             using (PRN211_Online_StoreContext context = new PRN211_Online_StoreContext())
             {
-                User u = context.Users.Where(u => u.Username == username && u.Password == password).FirstOrDefault();
+                User u = context.Users
+                    .Where(u => u.Username == username && u.Password == password)
+                    .FirstOrDefault();
                 return u;
             }
         }

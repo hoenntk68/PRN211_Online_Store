@@ -3,6 +3,7 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+
 }
 @using PRN211_Online_Store.Models;
 @model Product;
@@ -23,13 +24,19 @@
 
     @Html.Partial("_NavBar")
     <div class="container">
-    @Html.Partial("_ProductView", Model)
+        @Html.Partial("_ProductView", Model)
         <div class="product-description">
-            <h4>Thông tin sản phẩm</h4>
+            <h4>Thông tin sản phẩm variant</h4>
             <p>@Model.ProductDescription</p>
         </div>
         <div class="feedbacks">
             <h3>Đánh giá</h3>
+            <a class="feedback-button"
+               asp-controller="Feedback"
+               asp-action="Feedback"
+               asp-route-productId="@Model.ProductId">
+                Đánh giá sản phẩm
+            </a>
             @foreach (Feedback f in Model.Feedbacks)
             {
                 <div class="feedback">
@@ -76,7 +83,7 @@
             $(".feedback-image-zoom").on("click", function () {
                 // Get the source of the clicked image
                 const src = $(this).attr("src");
-                
+
                 // Set the source of the zoomed image popup
                 $("#zoomedImage").attr("src", src);
 

@@ -120,6 +120,24 @@ body {
 
 /* Product description */
 
+a.feedback-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #007bff; /* Blue color, you can change this to your preferred color */
+    color: #fff; /* Text color */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.feedback-button:hover {
+    background-color: #0056b3; /* Darker shade on hover, you can adjust this as well */
+}
+
 .feedbacks {
     margin-top: 30px;
 }

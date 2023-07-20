@@ -1,7 +1,36 @@
-﻿@*
+﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    int variantId = ViewBag.SelectedVariantId;
+    int variantPrice = -1;
+    int noVariants = Model.Variants.Count;
+    int minPrice = -1, maxPrice = -1;
+    if (noVariants > 0)
+    {
+        minPrice = (int)Model.Variants.Min(v => v.VariantPrice);
+        maxPrice = (int)Model.Variants.Max(v => v.VariantPrice);
+    }
+    if (variantId != 0)
+    {
+        variantPrice = (int)Model.Variants.Where(v => v.VariantId == variantId).FirstOrDefault().VariantPrice;
+        //Variant v = Model.Variants.Where(v => v.VariantId == variantId).SingleOrDefault();
+        //if (v != null)
+        //{
+        //    try
+        //    {
+        //        variantPrice = (v.VariantPrice != null) ? (int)v.VariantPrice : -3;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        variantPrice = new Random().Next(100, 500) * 1000;
+        //    }
+        //} else
+        //{
+        //    variantPrice = new Random().Next(100, 500) * 1000;
+        //}
+    }
 }
 @using PRN211_Online_Store.Models;
 @model Product;
@@ -11,9 +40,9 @@
         <div class="carousel">
             @foreach (ProductAttachment pa in Model.ProductAttachments)
             {
-            <img class="carousel-image"
-                 src="/img/@pa.FilePath"
-                 alt="@Model.ProductName" />
+                <img class="carousel-image"
+                     src="/img/@pa.FilePath"
+                     alt="@Model.ProductName" />
             }
             <div class="carousel-arrow prev">
                 <i class="fas fa-angle-left"></i>
@@ -26,24 +55,51 @@
     </div>
     <div class="product-info">
         <h3>@Model.ProductName</h3>
-        <p>Price: @Model.UnitPrice₫</p>
+        @if (variantId != 0)
+        {
+            <p>Price: @variantPrice</p>
+        }
+        else
+        {
+            @if (maxPrice != minPrice)
+            {
+                <p>Price: @minPrice - @maxPrice</p>
+            }
+            else
+            {
+                <p>Price: @minPrice</p>
+            }
+        }
         <p>Units in Stock: @Model.StockUnit</p>
         <p>Units Sold: @Model.SoldUnit</p>
         <p>
             Categories:
             @foreach (Category c in Model.Categories)
             {
-                <span>@c.CategoryName</span>
+                <button>
+                    <a style="text-decoration: none"
+                       asp-controller="Product"
+                       asp-action="Search"
+                       asp-route-categoryId="@c.CategoryId">
+                        @c.CategoryName
+                    </a>
+                </button>
             }
         </p>
-        <p>
-            Variants:
-        </p>
-        @foreach (Variant c in Model.Variants)
+        @if (noVariants > 1)
         {
-            <button style="border: 1px solid black">
-                @c.VariantName
-            </button>
+            <p>
+                Variants:
+            </p>
+            @foreach (Variant c in Model.Variants)
+            {
+                <button style="border: 1px solid black">
+                    <a href="/Product/Details/@Model.ProductId?variantId=@c.VariantId"
+                       style="text-decoration:none;">
+                        @c.VariantName
+                    </a>
+                </button>
+            }
         }
     </div>
 </div>

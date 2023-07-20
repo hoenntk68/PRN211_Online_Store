@@ -16,6 +16,7 @@ namespace PRN211_Online_Store
             name: "default",
             pattern: "{controller=Home}/{action=HomePage}/{id?}"
             );
+
             app.Run();
         }
     }

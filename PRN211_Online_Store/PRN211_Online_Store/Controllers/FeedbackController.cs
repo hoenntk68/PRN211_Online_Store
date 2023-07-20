@@ -20,6 +20,11 @@ namespace PRN211_Online_Store.Controllers
 
         public IActionResult Feedback(int id)
         {
+            string username = HttpContext.Session.GetString("username");
+            if (username == null)
+            {
+                return RedirectToAction("Login", "Authen");
+            }
             Product p = ProductService.FindById(id);
             return View(p);
         }
