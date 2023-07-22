@@ -18,11 +18,70 @@
         margin-top: 30px;
       }
 
+      a.feedback-button {
+        display: inline-block;
+        padding: 6px 12px;
+        background-color: #007bff; /* Blue color, you can change this to your preferred color */
+        color: #fff; /* Text color */
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      .feedback-button:hover {
+        background-color: #0056b3; /* Darker shade on hover, you can adjust this as well */
+      }
+
       .feedback {
         margin-bottom: 20px;
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 5px;
+        position: relative;
+      }
+
+      /* Updated class name to feedback-button-group */
+      .feedback-button-group {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+      }
+
+      .edit-button,
+      .update-button {
+        background-color: #4caf50; /* Green color for buttons */
+        border: none;
+        color: white;
+        padding: 6px 12px; /* Reduced padding to make the buttons 50% smaller */
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px; /* Reduced font size */
+        margin-left: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      /* Hover effect */
+      .edit-button:hover,
+      .update-button:hover {
+        background-color: #45a049; /* Darker green color on hover */
+      }
+
+      /* Remove default underlines from anchor tags */
+      .feedback-button-group a {
+        text-decoration: none;
+      }
+
+      /* Optional: Adjust the spacing between the buttons */
+      .feedback-button-group a:not(:last-child) {
+        margin-right: 5px; /* Reduced margin between buttons */
       }
 
       .feedback-user {
@@ -172,7 +231,16 @@
       </div>
       <div class="feedbacks">
         <h3>Đánh giá</h3>
+        <a class="feedback-button"> Đánh giá sản phẩm </a>
         <div class="feedback">
+          <div class="feedback-button-group">
+            <a href="#">
+              <button class="edit-button">Edit</button>
+            </a>
+            <a href="#">
+              <button class="update-button">Delete</button>
+            </a>
+          </div>
           <div class="feedback-user">
             <div class="feedback-avatar">
               <img

@@ -1,9 +1,10 @@
 ﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *,PRN211_Online_Store.CustomTag
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    int variantId = ViewBag.SelectedVariantId;
+    int variantId = ViewBag.SelectedVariantId != null ? ViewBag.SelectedVariantId : 0;
     int variantPrice = -1;
     int noVariants = Model.Variants.Count;
     int minPrice = -1, maxPrice = -1;
@@ -63,11 +64,14 @@
         {
             @if (maxPrice != minPrice)
             {
-                <p>Price: @minPrice - @maxPrice</p>
+                <p>Price: @minPrice - @maxPrice <span>₫</span></p>
             }
             else
             {
-                <p>Price: @minPrice</p>
+                <p>Price: <price price="34782375295"></price></p>
+                @*
+        <p>Price: @minPrice <span>₫</span></p>
+        *@
             }
         }
         <p>Units in Stock: @Model.StockUnit</p>

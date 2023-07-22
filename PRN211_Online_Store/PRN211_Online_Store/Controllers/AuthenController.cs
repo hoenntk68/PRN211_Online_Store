@@ -16,11 +16,15 @@ namespace PRN211_Online_Store.Controllers
 
         public IActionResult Login()
         {
+            string previousPageUrl = HttpContext.Request.Headers["Referer"].ToString();
+            //HttpContext.Session.SetString("PreviousPageUrl", previousPageUrl);
+
+            ViewBag.ReturnUrl = previousPageUrl;
             return View();
         }
 
         [HttpPost]
-        public IActionResult Login(string username, string password)
+        public IActionResult Login(string username, string password, string returnUrl)
         {
             User u = AuthenService.Login(username, password);
             if (u != null)
@@ -36,6 +40,10 @@ namespace PRN211_Online_Store.Controllers
                 {
                     HttpContext.Session.SetString("role", memberRole);
                 }
+                //if (!string.IsNullOrEmpty(returnUrl))
+                //{
+                //    return Redirect(returnUrl);
+                //}
                 return RedirectToAction("Homepage", "Home");
             }
             else

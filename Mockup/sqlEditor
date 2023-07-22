@@ -1,0 +1,1 @@
+INSERT INTO [FeedbackAttachment] (feedbackId, fileType) VALUES ()

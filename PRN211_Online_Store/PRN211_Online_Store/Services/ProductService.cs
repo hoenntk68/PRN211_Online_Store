@@ -39,7 +39,7 @@ namespace PRN211_Online_Store.Services
             }
         }
 
-        public static List<Product> SearchProduct(string toSearch)
+        public static List<Product> SearchProduct(string toSearch, int categoryId)
         {
             using (PRN211_Online_StoreContext context = new PRN211_Online_StoreContext())
             {
@@ -50,8 +50,10 @@ namespace PRN211_Online_Store.Services
                     .Include(p => p.Categories)
                     .Where(
                         p =>
-                            p.ProductName.ToLower().Contains(toSearch.ToLower().Trim())
-                            || p.ProductDescription.ToLower().Contains(toSearch.ToLower().Trim())
+                          (p.ProductName.ToLower().Contains(toSearch.ToLower().Trim())
+                            || p.ProductDescription.ToLower().Contains(toSearch.ToLower().Trim()))
+                        &&
+                        (categoryId == 0 || p.Categories.Any(c => c.CategoryId == categoryId))
                     ).ToList();
                 return products;
             }

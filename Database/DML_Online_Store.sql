@@ -259,33 +259,34 @@ INSERT INTO [Category] (categoryName) VALUES (N'Sắc đẹp');
 
 
 -- INSERT INTO [Variant]
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('1', N'Size 24', '232000');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('1', N'Size 26', '243000');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('1', N'Size 28', '296000');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('1', N'Size 30', '317000');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('2', N'Combo 50 cái trắng', '41500');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('2', N'Hộp 10 cái 5D trắng', '8900');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('2', N'Hộp 20 cái 5D trắng', '17000');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('3', N'Xám', '259000');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('3', N'Hồng', '259000');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('4', N'K3 Đen Cam Có Dây', '619000');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('4', N'K3 Trắng Xanh Có Dây', '619000');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('4', N'K6BT Đen Cam BLT', '869000');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('4', N'K6BT Trắng Xanh BLT', '869000');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('5', N'Trắng S', '195000');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('5', N'Nude S', '195000');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('5', N'Trắng M', '195000');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('5', N'Nude M', '195000');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('6', N'CY1 Green', '1490000');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('6', N'CY1 Pink', '1490000');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('6', N'CY0 White', '1490000');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('9', N'Đen', '179000');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('9', N'Hồng Pastel', '179000');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('9', N'Rêu', '179000');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('10', N'Đen', '490000');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('10', N'Xám', '490000');
-INSERT INTO [Variant] (productId, variantName, variantDescription) VALUES ('10', N'Be', '490000');
-
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('1', N'Size 24', '232000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('1', N'Size 26', '243000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('1', N'Size 28', '296000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('1', N'Size 30', '317000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('2', N'Combo 50 cái trắng', '41500');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('2', N'Hộp 10 cái 5D trắng', '8900');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('2', N'Hộp 20 cái 5D trắng', '17000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('3', N'Xám', '259000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('3', N'Hồng', '259000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('4', N'K3 Đen Cam Có Dây', '619000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('4', N'K3 Trắng Xanh Có Dây', '619000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('4', N'K6BT Đen Cam BLT', '869000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('4', N'K6BT Trắng Xanh BLT', '869000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('5', N'Trắng S', '195000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('5', N'Nude S', '195000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('5', N'Trắng M', '195000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('5', N'Nude M', '195000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('6', N'CY1 Green', '1490000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('6', N'CY1 Pink', '1490000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('6', N'CY0 White', '1490000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('7', N'Default', '251000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('8', N'Default', '385000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('9', N'Đen', '179000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('9', N'Hồng Pastel', '179000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('9', N'Rêu', '179000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('10', N'Đen', '490000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('10', N'Xám', '490000');
+INSERT INTO [Variant] (productId, variantName, variantPrice) VALUES ('10', N'Be', '490000');
 
 
 -- INSERT INTO [ProductCategory]
@@ -358,6 +359,31 @@ INSERT INTO [Feedback] (username, productId, rating, comment, feedbackTime) VALU
 INSERT INTO [Feedback] (username, productId, rating, comment, feedbackTime) VALUES ('namnt', '10', '5', N'dùng tạm được', '2023-7-1 09:00:00');
 
 
+
+-- INSERT INTO FeedbackAttachment
+INSERT INTO [FeedbackAttachment] (feedbackId, fileType) VALUES (1, 'Image')
+INSERT INTO [FeedbackAttachment] (feedbackId, fileType) VALUES (2, 'Image')
+INSERT INTO [FeedbackAttachment] (feedbackId, fileType) VALUES (3, 'Image')
+INSERT INTO [FeedbackAttachment] (feedbackId, fileType) VALUES (4, 'Image')
+INSERT INTO [FeedbackAttachment] (feedbackId, fileType) VALUES (5, 'Image')
+INSERT INTO [FeedbackAttachment] (feedbackId, fileType) VALUES (6, 'Image')
+INSERT INTO [FeedbackAttachment] (feedbackId, fileType) VALUES (7, 'Image')
+INSERT INTO [FeedbackAttachment] (feedbackId, fileType) VALUES (8, 'Image')
+INSERT INTO [FeedbackAttachment] (feedbackId, fileType) VALUES (9, 'Image')
+INSERT INTO [FeedbackAttachment] (feedbackId, fileType) VALUES (10, 'Image')
+INSERT INTO [FeedbackAttachment] (feedbackId, fileType) VALUES (11, 'Image')
+INSERT INTO [FeedbackAttachment] (feedbackId, fileType) VALUES (12, 'Image')
+INSERT INTO [FeedbackAttachment] (feedbackId, fileType) VALUES (13, 'Image')
+INSERT INTO [FeedbackAttachment] (feedbackId, fileType) VALUES (14, 'Image')
+INSERT INTO [FeedbackAttachment] (feedbackId, fileType) VALUES (15, 'Image')
+INSERT INTO [FeedbackAttachment] (feedbackId, fileType) VALUES (16, 'Image')
+INSERT INTO [FeedbackAttachment] (feedbackId, fileType) VALUES (17, 'Image')
+INSERT INTO [FeedbackAttachment] (feedbackId, fileType) VALUES (18, 'Image')
+INSERT INTO [FeedbackAttachment] (feedbackId, fileType) VALUES (19, 'Image')
+INSERT INTO [FeedbackAttachment] (feedbackId, fileType) VALUES (20, 'Image')
+UPDATE [FeedbackAttachment] SET filePath = 'sampleFeedback.png';
+select * from FeedbackAttachment where feedbackId = 1;
+select * from [User];
 
 -- INSERT INTO 
 

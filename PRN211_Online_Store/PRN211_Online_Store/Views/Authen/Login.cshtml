@@ -15,6 +15,7 @@
     <div class="container">
         <h2>Welcome to Our Online Store</h2>
         <form asp-controller="Authen" asp-action="Login" method="post">
+            <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text"

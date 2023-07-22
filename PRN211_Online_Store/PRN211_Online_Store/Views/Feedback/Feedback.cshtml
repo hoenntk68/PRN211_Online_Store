@@ -3,9 +3,10 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    int feedbackId = ViewBag.FeedbackId;
 }
 @using PRN211_Online_Store.Models;
-@model Product;
+@model (Product Product, Feedback Feedback);
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,76 +26,178 @@
 <body>
     @Html.Partial("_NavBar")
     <hr />
-    @Html.Partial("_ProductView", Model)
+    @Html.Partial("_ProductView", Model.Product)
     <hr />
     <h1>Product Feedback</h1>
-    <form 
-        class="feedback-form"
-        method="POST"
-        asp-controller="Feedback"
-        asp-action="CreateFeedback"
-        asp-route-productId="@Model.ProductId"
-        enctype="multipart/form-data"
-    >
-        <p for="rating">Rate the product:</p>
-        <div class="star-rating">
-            <input id="star-5x" type="radio" name="rating" value="5" />
-            <label for="star-5x" title="5 stars">
-                <i class="fa fa-star"></i>
-            </label>
+    @if (feedbackId != null && feedbackId != 0) // edit feedback
+    {
+        <form class="feedback-form"
+              method="POST"
+          asp-controller="Feedback"
+          asp-action="Edit"
+          asp-route-productId="@Model.Product.ProductId"
+          asp-route-feedbackId="@Model.Feedback.FeedbackId"
+              enctype="multipart/form-data">
+            <p for="rating">Rate the product:</p>
+            <div class="star-rating">
+                @if (Model.Feedback.Rating == 5)
+                {
+                    <input id="star-5x" type="radio" name="rating" value="5" checked />
+                    <label for="star-5x" title="5 stars">
+                        <i class="fa fa-star"></i>
+                    </label>
+                }
+                else
+                {
+                    <input id="star-5x" type="radio" name="rating" value="5" />
+                    <label for="star-5x" title="5 stars">
+                        <i class="fa fa-star"></i>
+                    </label>
+                }
 
-            <input id="star-4x" type="radio" name="rating" value="4" />
-            <label for="star-4x" title="4 stars">
-                <i class="fa fa-star"></i>
-            </label>
+                @if (Model.Feedback.Rating == 4)
+                {
+                    <input id="star-4x" type="radio" name="rating" value="4" checked />
+                    <label for="star-4x" title="4 stars">
+                        <i class="fa fa-star"></i>
+                    </label>
+                }
+                else
+                {
+                    <input id="star-4x" type="radio" name="rating" value="4" />
+                    <label for="star-4x" title="4 stars">
+                        <i class="fa fa-star"></i>
+                    </label>
+                }
 
-            <input id="star-3x" type="radio" name="rating" value="3" />
-            <label for="star-3x" title="3 stars">
-                <i class="fa fa-star"></i>
-            </label>
+                @if (Model.Feedback.Rating == 3)
+                {
+                    <input id="star-3x" type="radio" name="rating" value="3" checked />
+                    <label for="star-3x" title="3 stars">
+                        <i class="fa fa-star"></i>
+                    </label>
+                }
+                else
+                {
+                    <input id="star-3x" type="radio" name="rating" value="3" />
+                    <label for="star-3x" title="3 stars">
+                        <i class="fa fa-star"></i>
+                    </label>
+                }
 
-            <input id="star-2x" type="radio" name="rating" value="2" />
-            <label for="star-2x" title="2 stars">
-                <i class="fa fa-star"></i>
-            </label>
+                @if (Model.Feedback.Rating == 2)
+                {
+                    <input id="star-2x" type="radio" name="rating" value="2" checked />
+                    <label for="star-2x" title="2 stars">
+                        <i class="fa fa-star"></i>
+                    </label>
+                }
+                else
+                {
+                    <input id="star-2x" type="radio" name="rating" value="2" />
+                    <label for="star-2x" title="2 stars">
+                        <i class="fa fa-star"></i>
+                    </label>
+                }
 
-            <input id="star-1x" type="radio" name="rating" value="1" />
-            <label for="star-1x" title="1 star">
-                <i class="fa fa-star"></i>
-            </label>
-        </div>
-        @*
+                @if (Model.Feedback.Rating == 1)
+                {
+                    <input id="star-1x" type="radio" name="rating" value="1" checked />
+                    <label for="star-1x" title="1 star">
+                        <i class="fa fa-star"></i>
+                    </label>
+                }
+                else
+                {
+                    <input id="star-1x" type="radio" name="rating" value="1" />
+                    <label for="star-1x" title="1 star">
+                        <i class="fa fa-star"></i>
+                    </label>
+                }
+            </div>
+            <h1>Image Upload</h1>
+            <div class="image-upload-form">
+                <div class="image-upload-section">
+                    <label for="images">Upload Images:</label>
+                    <input type="file" name="images" id="images" accept="image/*" multiple>
+                </div>
 
-    </form>
-        *@
-        <h1>Image Upload</h1>
-    @*
-    <form class="image-upload-form" action="submit-form.php" method="POST" enctype="multipart/form-data">
-    *@
-        <div class="image-upload-form">
-            <div class="image-upload-section">
-                <label for="images">Upload Images:</label>
-                <input type="file" name="images" id="images" accept="image/*" multiple>
+                <div class="image-preview-section">
+                    <h3>Image Preview:</h3>
+                    <div class="image-preview-container"></div>
+                </div>
+            </div>
+            <div class="comment-section">
+                <label for="comment">Leave a comment:</label>
+                <textarea name="comment"
+                          id="comment"
+                          rows="5"
+                          placeholder="Enter your comment"
+                >@Model.Feedback.Comment</textarea>
             </div>
 
-            <div class="image-preview-section">
-                <h3>Image Preview:</h3>
-                <div class="image-preview-container"></div>
-            </div>
-        </div>
-        <div class="comment-section">
-            <label for="comment">Leave a comment:</label>
-            <textarea 
-                name="comment"
-                id="comment"
-                rows="5"
-                placeholder="Enter your comment"
-            >
-            </textarea>
-        </div>
+            <input type="submit" value="Update Feedback"/>
+        </form>
+    }
+    else //create new
+    {
+        <form class="feedback-form"
+              method="POST"
+          asp-controller="Feedback"
+          asp-action="CreateFeedback"
+          asp-route-productId="@Model.Product.ProductId"
+              enctype="multipart/form-data">
+            <p for="rating">Rate the product:</p>
+            <div class="star-rating">
+                <input id="star-5x" type="radio" name="rating" value="5" />
+                <label for="star-5x" title="5 stars">
+                    <i class="fa fa-star"></i>
+                </label>
 
-        <input type="submit" value="Submit Feedback" />
-    </form>
+                <input id="star-4x" type="radio" name="rating" value="4" />
+                <label for="star-4x" title="4 stars">
+                    <i class="fa fa-star"></i>
+                </label>
+
+                <input id="star-3x" type="radio" name="rating" value="3" />
+                <label for="star-3x" title="3 stars">
+                    <i class="fa fa-star"></i>
+                </label>
+
+                <input id="star-2x" type="radio" name="rating" value="2" />
+                <label for="star-2x" title="2 stars">
+                    <i class="fa fa-star"></i>
+                </label>
+
+                <input id="star-1x" type="radio" name="rating" value="1" />
+                <label for="star-1x" title="1 star">
+                    <i class="fa fa-star"></i>
+                </label>
+            </div>
+            <h1>Image Upload</h1>
+            <div class="image-upload-form">
+                <div class="image-upload-section">
+                    <label for="images">Upload Images:</label>
+                    <input type="file" name="images" id="images" accept="image/*" multiple>
+                </div>
+
+                <div class="image-preview-section">
+                    <h3>Image Preview:</h3>
+                    <div class="image-preview-container"></div>
+                </div>
+            </div>
+            <div class="comment-section">
+                <label for="comment">Leave a comment:</label>
+                <textarea name="comment"
+                          id="comment"
+                          rows="5"
+                          placeholder="Enter your comment"></textarea>
+            </div>
+
+            <input type="submit" value="Submit Feedback" />
+        </form>
+
+    }
     <hr />
 </body>
 <script>

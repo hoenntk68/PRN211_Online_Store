@@ -20,14 +20,14 @@ namespace PRN211_Online_Store.Controllers
             return View(p);
         }
 
-        public IActionResult Search(string toSearch)
+        public IActionResult Search(string toSearch, int categoryId)
         {
             if (toSearch == null)
             {
                 toSearch = string.Empty;
             }
             toSearch = toSearch.Trim();
-            List<Product> productsFound = ProductService.SearchProduct(toSearch);
+            List<Product> productsFound = ProductService.SearchProduct(toSearch, categoryId);
             if (productsFound != null)
             {
                 ViewBag.SearchFunction = "true";
@@ -40,14 +40,14 @@ namespace PRN211_Online_Store.Controllers
             }
         }
 
-        public IActionResult Searchx(string toSearch)
+        public IActionResult SearchByCate(string toSearch, int categoryId)
         {
             if (toSearch == null)
             {
                 toSearch = string.Empty;
             }
             toSearch = toSearch.Trim();
-            List<Product> productsFound = ProductService.SearchProduct(toSearch);
+            List<Product> productsFound = ProductService.SearchProduct(toSearch, categoryId);
             if (productsFound != null)
             {
                 ViewBag.SearchFunction = "true";

@@ -3,7 +3,8 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-
+    string username = Context.Session.GetString("username");
+    string role = Context.Session.GetString("role");
 }
 @using PRN211_Online_Store.Models;
 @model Product;
@@ -21,7 +22,6 @@
 </head>
 <body>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     @Html.Partial("_NavBar")
     <div class="container">
         @Html.Partial("_ProductView", Model)
@@ -30,16 +30,27 @@
             <p>@Model.ProductDescription</p>
         </div>
         <div class="feedbacks">
+            @*
             <h3>Đánh giá</h3>
+            *@
             <a class="feedback-button"
-               asp-controller="Feedback"
-               asp-action="Feedback"
-               asp-route-productId="@Model.ProductId">
+               href="/Feedback/Feedback/@Model.ProductId">
                 Đánh giá sản phẩm
             </a>
             @foreach (Feedback f in Model.Feedbacks)
             {
                 <div class="feedback">
+                    @if (f.UsernameNavigation.Username == username)
+                    {
+                        <div class="feedback-button-group">
+                            <a href="/Feedback/Feedback/@Model.ProductId?feedbackId=@f.FeedbackId">
+                                <button class="edit-button">Edit</button>
+                            </a>
+                            <a href="/Feedback/Delete/@f.FeedbackId">
+                                <button class="update-button">Delete</button>
+                            </a>
+                        </div>
+                    }
                     <div class="feedback-user">
                         <div class="feedback-avatar">
                             <img src="~/img/@f.UsernameNavigation.AvatarPath"
@@ -60,13 +71,12 @@
                     <p class="feedback-comment">@f.Comment</p>
                     <div class="feedback-images">
                         <!-- Images for the first feedback -->
-                        <img class="feedback-image-zoom"
-                             src="https://media.istockphoto.com/id/1198863709/photo/skin-and-hair-care-beauty-product-mock-up-lotion-bottle-oil-cream-isolated-on-white-3d-render.jpg?s=612x612&w=0&k=20&c=_0-9dLUohaQrThH0669Ygx3Ar17rX0cRkXy0cEexfQw="
-                             alt="Feedback Image 1" />
-                        <img class="feedback-image-zoom"
-                             src="https://media.istockphoto.com/id/1198863709/photo/skin-and-hair-care-beauty-product-mock-up-lotion-bottle-oil-cream-isolated-on-white-3d-render.jpg?s=612x612&w=0&k=20&c=_0-9dLUohaQrThH0669Ygx3Ar17rX0cRkXy0cEexfQw="
-                             alt="Feedback Image 1" />
-                        <!-- Add more images here for the first feedback if needed -->
+                        @foreach (FeedbackAttachment a in f.FeedbackAttachments)
+                        {
+                            <img class="feedback-image-zoom"
+                                 src="/img/@a.FilePath"
+                                 alt="Feedback Image 1" />
+                        }
                     </div>
                 </div>
             }

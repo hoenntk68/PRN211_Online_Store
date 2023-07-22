@@ -53,44 +53,44 @@
     transition: opacity 0.3s ease;
 }
 
-.carousel-arrow:hover {
-    opacity: 0.8;
-}
+    .carousel-arrow:hover {
+        opacity: 0.8;
+    }
 
-.carousel-arrow.prev {
-    left: 10px;
-}
+    .carousel-arrow.prev {
+        left: 10px;
+    }
 
-.carousel-arrow.next {
-    right: 10px;
-}
+    .carousel-arrow.next {
+        right: 10px;
+    }
 
 .product-info {
     flex-basis: 50%;
 }
 
-.product-info h3 {
-    color: #333;
-    margin-top: 0;
-    margin-bottom: 10px;
-}
+    .product-info h3 {
+        color: #333;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
 
-.product-info p {
-    color: #777;
-    margin-top: 0;
-    margin-bottom: 10px;
-}
+    .product-info p {
+        color: #777;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
 
-.product-info ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+    .product-info ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
 
-.product-info ul li {
-    color: #777;
-    margin-bottom: 5px;
-}
+        .product-info ul li {
+            color: #777;
+            margin-bottom: 5px;
+        }
 
 /* Product description */
 
@@ -101,15 +101,15 @@
     border-radius: 5px;
 }
 
-.product-description h4 {
-    font-size: 16px;
-    margin-bottom: 5px;
-}
+    .product-description h4 {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
 
-.product-description p {
-    color: #333;
-    margin: 0;
-}
+    .product-description p {
+        color: #333;
+        margin: 0;
+    }
 
 
 /*Feedback images*/
@@ -119,17 +119,21 @@ body {
 }
 
 /* Product description */
+.feedbacks {
+    margin-top: 30px;
+}
 
 a.feedback-button {
     display: inline-block;
-    padding: 12px 24px;
+    padding: 6px 12px;
     background-color: #007bff; /* Blue color, you can change this to your preferred color */
     color: #fff; /* Text color */
     border: none;
     border-radius: 5px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
+    margin-bottom: 20px !important;
     cursor: pointer;
     transition: background-color 0.2s;
 }
@@ -138,15 +142,51 @@ a.feedback-button {
     background-color: #0056b3; /* Darker shade on hover, you can adjust this as well */
 }
 
-.feedbacks {
-    margin-top: 30px;
-}
-
 .feedback {
+    position: relative;
     margin-bottom: 20px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+
+.feedback-button-group {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+}
+
+.edit-button,
+.update-button {
+    background-color: #4caf50; /* Green color for buttons */
+    border: none;
+    color: white;
+    padding: 6px 12px; /* Reduced padding to make the buttons 50% smaller */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px; /* Reduced font size */
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Hover effect */
+.edit-button:hover,
+.update-button:hover {
+    background-color: #45a049; /* Darker green color on hover */
+}
+
+/* Remove default underlines from anchor tags */
+.feedback-button-group a {
+    text-decoration: none;
+}
+
+/* Optional: Adjust the spacing between the buttons */
+.feedback-button-group a:not(:last-child) {
+    margin-right: 5px; /* Reduced margin between buttons */
 }
 
 .feedback-user {
@@ -237,6 +277,6 @@ a.feedback-button {
     color: #fff;
 }
 
-    .close-button:hover {
-        color: red;
-    }
+.close-button:hover {
+    color: red;
+}

@@ -123,6 +123,7 @@ CREATE TABLE [Feedback] (
 	rating int,
 	comment nvarchar(255),
 	feedbackTime datetime,
+	-- editTimes DEFAULT 0,
 	CONSTRAINT PK_Feedback PRIMARY KEY (feedbackId)
 )
 ALTER TABLE [Feedback] ADD CONSTRAINT FK_Feedback_User FOREIGN KEY (username)
@@ -134,13 +135,14 @@ REFERENCES [Product] (productId)
 CREATE TABLE [FeedbackAttachment] (
 	attachmentId int IDENTITY(1,1) NOT NULL,
 	feedbackId int NOT NULL,
-	fileType varchar(255) NOT NULL,
-	filePath varchar(255) NOT NULL,
+	fileType varchar(255),
+	filePath varchar(255),
 	description nvarchar(255),
 	CONSTRAINT PK_FeedbackAttachment PRIMARY KEY (attachmentId)
 )
 ALTER TABLE [FeedbackAttachment] ADD CONSTRAINT FK_FeedbackAttachment_Feedback FOREIGN KEY (feedbackId)
-REFERENCES [Feedback] (feedbackId)
+REFERENCES [Feedback] (feedbackId);
+ALTER TABLE [FeedbackAttachment] ALTER COLUMN filePath varchar(255) NULL;
 
 -- DROP TABLES
 /*
